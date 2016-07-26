@@ -4,10 +4,18 @@ Provides an homogeneous interface to deal with a variety of pwm motor drivers in
 
 All PWM motor drivers control the speed and direction of a DC motor using different number of
 pins. The aim of this class is to provide an homogeneous interface for an Arduino program to
-be abel to control the speed of a DC Motor.
+be able to control the speed of a DC Motor.
 
-It contains just one method called writePWM(int pwmSpeed) where -255 <= pwmSpeed <= 255, positive
-values will cause the motor to turn CW and negative CCW.
+It contains the following methods:
 
-A particular implementation of a driver has to extend this class   coding
-the  writePWM method to behave as defined above.
+writePWM(int pwmSpeed), sets the motor speed where 0 <= pwmSpeed <= 255
+
+setDirectionCW() sets the CW direction
+      
+setDirectionCCW() sets the CCW direction;
+      
+setBrake() brakes the motor;
+
+float getCurrent() returns the Amps through the motor.
+
+This class has to be extended to implement the behavior of the virtual methods defined above
